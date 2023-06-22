@@ -8,16 +8,19 @@ function App() {
   const [countrySortOrder, setCountrySortOrder] = useState('asc');
   const [sortingVisible, setSortingVisible] = useState(true);
   const [searchValue, setSearchValue] = useState('');
+  const [isExpanded, setIsExpanded] = useState(false);
 
   function handleCountrySelect(country) {
     setSelectedCountry(country);
     setSortingVisible(false);
     setSearchValue('');
+    setIsExpanded(true);
   }
 
   function handleBackBtn() {
     setSelectedCountry(null);
     setSortingVisible(true);
+    setIsExpanded(false);
   }
 
   function handleCountrySort() {
@@ -77,7 +80,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className={isExpanded ? 'app-expanded' : 'app'}>
         <div className='button-container'>{renderSortBtn()}</div>
         {renderCountriesContent()}
       </div>
