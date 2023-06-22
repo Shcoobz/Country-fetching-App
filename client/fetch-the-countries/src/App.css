@@ -124,13 +124,7 @@ button:active {
   padding: 0.7rem;
   position: absolute;
   right: 0;
-  top: 30%;
-  transform: translateY(-50%);
-}
-
-.fav-btn:active {
-  transform: translateY(-20%);
-  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
+  top: 15%;
 }
 
 @keyframes logo-spin {
