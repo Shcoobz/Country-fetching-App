@@ -3,6 +3,8 @@ import './App.css';
 import ComCountriesFetch from './components/ComCountriesFetch';
 import ComCountryData from './components/ComCountryData';
 
+// TODO: add the fav btn also to country details & change its appearance, when country is in favorites
+
 function App() {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [countrySortOrder, setCountrySortOrder] = useState('asc');
@@ -78,9 +80,11 @@ function App() {
     }
   }
 
+  const checkIfOnCountryDetails = isExpanded ? 'app-expanded' : 'app';
+
   return (
     <>
-      <div className={isExpanded ? 'app-expanded' : 'app'}>
+      <div className={checkIfOnCountryDetails}>
         <div className='button-container'>{renderSortBtn()}</div>
         {renderCountriesContent()}
       </div>

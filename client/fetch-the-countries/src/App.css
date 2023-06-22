@@ -34,9 +34,11 @@ body {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -148,6 +150,28 @@ button:active {
   position: absolute;
   right: 0;
   top: 15%;
+}
+
+.fav-btn:hover::after {
+  content: 'Add to Favorites';
+  position: absolute;
+  top: -3.2rem;
+  right: 50%;
+  transform: translateX(50%);
+  padding: 0.5rem;
+  border-radius: 5px;
+  /* background-color: #1a1a1a; */
+  color: #fff;
+  font-size: 0.8rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0s linear 0.2s;
+}
+
+.fav-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 @keyframes logo-spin {
