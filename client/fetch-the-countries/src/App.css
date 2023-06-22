@@ -1,14 +1,13 @@
-body {
-  margin: 0;
-  padding: 0;
-  /* adjust the width to your preference */
-}
-
 #root {
   max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 .logo {
@@ -29,6 +28,30 @@ body {
   border-radius: 10px;
   padding: 10px;
   margin: 30px 0;
+  position: relative;
+  flex: 1;
+}
+
+.search-bar {
+  width: 50%;
+  height: 3rem;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+.country-name-container {
+  text-align: center;
+  position: relative;
+}
+
+.country-name-container::before,
+.country-name-container::after {
+  content: '';
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  visibility: hidden;
 }
 
 .container {
@@ -53,7 +76,7 @@ body {
   font-weight: bold;
   text-align: left;
   display: inline-block;
-  width: 175px; /* Adjust the width as needed */
+  width: 175px;
   margin: 5px 25px 5px 75px;
 }
 
@@ -66,6 +89,12 @@ body {
   display: inline-block;
   margin: 0;
   word-wrap: break-word;
+}
+
+.heart-icon {
+  color: #e51515;
+  position: relative;
+  top: -2px;
 }
 
 button {
@@ -88,6 +117,19 @@ button:hover {
 
 button:active {
   transform: translate(0, 0.3rem);
+  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
+}
+
+.fav-btn {
+  padding: 0.7rem;
+  position: absolute;
+  right: 0;
+  top: 30%;
+  transform: translateY(-50%);
+}
+
+.fav-btn:active {
+  transform: translateY(-20%);
   box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
 }
 

@@ -7,10 +7,12 @@ function App() {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [countrySortOrder, setCountrySortOrder] = useState('asc');
   const [sortingVisible, setSortingVisible] = useState(true);
+  const [searchValue, setSearchValue] = useState('');
 
   function handleCountrySelect(country) {
     setSelectedCountry(country);
     setSortingVisible(false);
+    setSearchValue('');
   }
 
   function handleBackBtn() {
@@ -66,6 +68,8 @@ function App() {
           sortData={sortData}
           sortOrder={countrySortOrder}
           sortingVisible={sortingVisible}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
         />
       );
     }

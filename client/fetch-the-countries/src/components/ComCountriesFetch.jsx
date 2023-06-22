@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 import ComCountriesList from './ComCountriesList';
 
-function ComCountriesFetch({ onCountrySelect, sortData }) {
+function ComCountriesFetch({
+  onCountrySelect,
+  sortData,
+  sortOrder,
+  searchValue,
+  setSearchValue,
+}) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -17,13 +23,22 @@ function ComCountriesFetch({ onCountrySelect, sortData }) {
     };
 
     fetchData();
-  }, [sortData]);
+  }, [sortData, sortOrder]);
 
   console.log('Data from ComCountries:', data);
 
+  const filteredData = data.filter((country) =>
+    country.name.common.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
   return (
     <div>
-      <ComCountriesList data={data} onCountrySelect={onCountrySelect} />
+      <ComCountriesList
+        data={filteredData}
+        onCountrySelect={onCountrySelect}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
     </div>
   );
 }
