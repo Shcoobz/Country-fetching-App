@@ -3,11 +3,15 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .logo {
@@ -38,6 +42,11 @@ body {
   font-size: 1.2rem;
   padding: 0.5rem;
   margin: 1rem 0;
+}
+
+.search-bar:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .country-name-container {
