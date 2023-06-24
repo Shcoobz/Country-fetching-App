@@ -1,4 +1,4 @@
-function ComCountryData({ country, onBack }) {
+function ComCountryCardBig({ country, onBack }) {
   return (
     <div>
       <div className='country-container'>
@@ -58,4 +58,4 @@ function ComCountryData({ country, onBack }) {
   );
 }
 
-export default ComCountryData;
+export default ComCountryCardBig;

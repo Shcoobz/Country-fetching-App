@@ -7,6 +7,8 @@ function ComCountriesFetch({
   sortOrder,
   searchValue,
   setSearchValue,
+  favorites,
+  setFavorites,
 }) {
   const [data, setData] = useState([]);
 
@@ -38,6 +40,8 @@ function ComCountriesFetch({
         onCountrySelect={onCountrySelect}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
+        favorites={favorites}
+        setFavorites={setFavorites}
       />
     </div>
   );

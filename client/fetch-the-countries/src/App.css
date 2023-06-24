@@ -28,6 +28,19 @@ body {
   text-align: center;
 }
 
+.favorites-view {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -58,11 +71,11 @@ body {
   font-size: 1.2rem;
   padding: 0.5rem;
   margin: 1rem 0;
+  text-align: center;
 }
 
-.search-bar:focus {
-  outline: none;
-  box-shadow: none;
+.search-bar::placeholder {
+  text-align: center;
 }
 
 .country-name-container {
@@ -152,15 +165,21 @@ button:active {
   top: 15%;
 }
 
-.fav-btn:hover::after {
-  content: 'Add to Favorites';
+.fav-btn .heart-icon.regularHeart:hover + .tooltip::after {
+  content: 'Add';
+}
+
+.fav-btn .heart-icon.solidHeart:hover + .tooltip::after {
+  content: 'Remove';
+}
+
+.tooltip {
   position: absolute;
-  top: -3.2rem;
+  top: -2rem;
   right: 50%;
   transform: translateX(50%);
   padding: 0.5rem;
   border-radius: 5px;
-  /* background-color: #1a1a1a; */
   color: #fff;
   font-size: 0.8rem;
   opacity: 0;
@@ -168,7 +187,8 @@ button:active {
   transition: opacity 0.2s, visibility 0s linear 0.2s;
 }
 
-.fav-btn:hover::after {
+.fav-btn:hover .heart-icon.regularHeart:hover + .tooltip,
+.fav-btn:hover .heart-icon.solidHeart:hover + .tooltip {
   opacity: 1;
   visibility: visible;
   transition-delay: 0s;
