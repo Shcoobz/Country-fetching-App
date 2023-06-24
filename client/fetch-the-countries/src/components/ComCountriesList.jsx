@@ -9,22 +9,32 @@ const ComCountriesList = ({
   setFavorites,
   handleFavoriteToggle,
 }) => {
-  function handleFavoriteToggle(country) {
-    const isFavorite = favorites.some(
-      (fav) => fav.name.common === country.name.common
-    );
+  const renderedCountries = data.map(renderCountry);
 
-    if (isFavorite) {
-      setFavorites((prevFavorites) =>
-        prevFavorites.filter((fav) => fav.name.common !== country.name.common)
-      );
+  function checkIsFavorite(country) {
+    return favorites.some((fav) => fav.name.common === country.name.common);
+  }
+
+  function addFavorite(country) {
+    setFavorites((prevFavorites) => [...prevFavorites, country]);
+  }
+
+  function removeFavorite(country) {
+    setFavorites((prevFavorites) =>
+      prevFavorites.filter((fav) => fav.name.common !== country.name.common)
+    );
+  }
+
+  function handleFavoriteToggle(country) {
+    if (checkIsFavorite(country)) {
+      removeFavorite(country);
     } else {
-      setFavorites((prevFavorites) => [...prevFavorites, country]);
+      addFavorite(country);
     }
   }
 
-  function renderCountries() {
-    return data.map((country, index) => (
+  function renderCountry(country, index) {
+    return (
       <ComCountryCardSmall
         key={index}
         country={country}
@@ -32,7 +42,7 @@ const ComCountriesList = ({
         handleFavoriteToggle={handleFavoriteToggle}
         onCountrySelect={onCountrySelect}
       />
-    ));
+    );
   }
 
   function renderSearchBar() {
@@ -50,7 +60,7 @@ const ComCountriesList = ({
     <div>
       <h1>Countries:</h1>
       {renderSearchBar()}
-      <div className='container'> {renderCountries(handleFavoriteToggle)}</div>
+      <div className='container'>{renderedCountries}</div>
     </div>
   );
 };

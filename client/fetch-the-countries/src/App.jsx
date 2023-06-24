@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import './App.css';
 import ComCountriesFetch from './components/ComCountriesFetch';
 import ComCountryCardBig from './components/ComCountryCardBig';
 import ComFavoriteCountries from './components/ComFavoriteCountries';
+
+import { useState } from 'react';
+import './App.css';
 
 function App() {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -13,11 +14,19 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
 
+  const checkIfOnCountryDetails = isExpanded ? 'app-expanded' : 'app';
+
   function handleCountrySelect(country) {
     setSelectedCountry(country);
     setSortingVisible(false);
     setSearchValue('');
     setIsExpanded(true);
+  }
+
+  function handleCountrySort() {
+    setCountrySortOrder((prevSortOrder) =>
+      prevSortOrder === 'asc' ? 'desc' : 'asc'
+    );
   }
 
   function handleBackBtn() {
@@ -27,16 +36,12 @@ function App() {
     setShowFavorites(false);
   }
 
-  function handleCountrySort() {
-    setCountrySortOrder((prevSortOrder) =>
-      prevSortOrder === 'asc' ? 'desc' : 'asc'
-    );
+  function handleFavoriteBtn() {
+    setShowFavorites(true);
   }
 
   function sortData(data) {
-    const sortedData = [...data];
-
-    sortedData.sort((a, b) => {
+    return [...data].sort((a, b) => {
       const nameA = a.name.common.toUpperCase();
       const nameB = b.name.common.toUpperCase();
 
@@ -48,26 +53,6 @@ function App() {
 
       return 0;
     });
-
-    return sortedData;
-  }
-
-  function sortFavorites() {
-    const sortedFavorites = favorites.slice();
-    sortedFavorites.sort((a, b) => {
-      const nameA = a.name.common.toUpperCase();
-      const nameB = b.name.common.toUpperCase();
-
-      if (countrySortOrder === 'asc') {
-        return nameA.localeCompare(nameB);
-      } else if (countrySortOrder === 'desc') {
-        return nameB.localeCompare(nameA);
-      }
-
-      return 0;
-    });
-
-    return sortedFavorites;
   }
 
   function renderSortBtn() {
@@ -89,7 +74,7 @@ function App() {
         </button>
       );
     }
-    return null; // Add this line to handle the case where showFavorites is true
+    return null;
   }
 
   function renderCountriesContent() {
@@ -100,12 +85,11 @@ function App() {
     }
 
     if (showFavorites) {
-      const sortedFavorites = sortFavorites();
       return (
         <ComFavoriteCountries
-          favorites={sortedFavorites}
+          favorites={sortData(favorites)}
           onBack={handleBackBtn}
-          setFavorites={setFavorites} // Add this line to pass setFavorites to ComFavoriteCountries
+          setFavorites={setFavorites}
         />
       );
     }
@@ -123,12 +107,6 @@ function App() {
       />
     );
   }
-
-  function handleFavoriteBtn() {
-    setShowFavorites(true);
-  }
-
-  const checkIfOnCountryDetails = isExpanded ? 'app-expanded' : 'app';
 
   return (
     <div className={checkIfOnCountryDetails}>

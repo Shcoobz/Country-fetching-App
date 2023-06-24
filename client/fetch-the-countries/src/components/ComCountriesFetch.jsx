@@ -1,6 +1,29 @@
 import { useState, useEffect } from 'react';
 import ComCountriesList from './ComCountriesList';
 
+async function fetchCountries() {
+  try {
+    const response = await fetch('https://restcountries.com/v3.1/all');
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.error('Error fetching countries:', err);
+    return [];
+  }
+}
+
+function sortCountries(countries, sortData) {
+  const sortedCountries = sortData(countries);
+  return sortedCountries;
+}
+
+function filterCountries(countries, searchValue) {
+  const filteredCountries = countries.filter((country) =>
+    country.name.common.toLowerCase().includes(searchValue.toLowerCase())
+  );
+  return filteredCountries;
+}
+
 function ComCountriesFetch({
   onCountrySelect,
   sortData,
@@ -10,33 +33,25 @@ function ComCountriesFetch({
   favorites,
   setFavorites,
 }) {
-  const [data, setData] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const filteredCountries = filterCountries(countries, searchValue);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://restcountries.com/v3.1/all');
-        const data = await response.json();
-        const sortedData = sortData(data);
-        setData(sortedData);
-      } catch (err) {
-        console.log('useEffect in ComCountries:', err);
-      }
-    };
+    async function getCountries() {
+      const fetchedCountries = await fetchCountries();
+      const sortedCountries = sortCountries(fetchedCountries, sortData);
+      setCountries(sortedCountries);
+    }
 
-    fetchData();
+    getCountries();
   }, [sortData, sortOrder]);
 
-  console.log('Data from ComCountries:', data);
-
-  const filteredData = data.filter((country) =>
-    country.name.common.toLowerCase().includes(searchValue.toLowerCase())
-  );
+  console.log('Data from ComCountries:', countries);
 
   return (
     <div>
       <ComCountriesList
-        data={filteredData}
+        data={filteredCountries}
         onCountrySelect={onCountrySelect}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
