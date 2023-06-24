@@ -1,7 +1,12 @@
 import ComCountryCardSmall from './ComCountryCardSmall';
 import ComBackBtn from './Buttons/ComBackBtn';
 
-const ComFavoriteCountries = ({ favorites, onBack, setFavorites }) => {
+const ComFavoriteCountries = ({
+  favorites,
+  onBack,
+  onCountrySelect,
+  setFavorites,
+}) => {
   const favoritesWithStatus = getFavoritesWithStatus();
   const favoriteCountryCards = createFavoriteCountryCards(favoritesWithStatus);
   const favoriteCountriesContent = createFavoriteCountriesContent();
@@ -41,7 +46,9 @@ const ComFavoriteCountries = ({ favorites, onBack, setFavorites }) => {
           handleFavoriteToggle={
             isFavorite ? handleRemoveFavorite : handleAddFavorite
           }
-          onCountrySelect={() => {}}
+          onCountrySelect={() => {
+            onCountrySelect(country);
+          }}
         />
       );
     }

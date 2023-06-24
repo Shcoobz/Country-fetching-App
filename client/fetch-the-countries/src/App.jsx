@@ -5,6 +5,9 @@ import ComFavoriteCountries from './components/ComFavoriteCountries';
 import { useState } from 'react';
 import './App.css';
 
+// TODO: incorporate list into app and then figure out how to separate it
+// TODO: when on details show fav doesnt work
+
 function App() {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [countrySortOrder, setCountrySortOrder] = useState('asc');
@@ -78,7 +81,7 @@ function App() {
   }
 
   function renderCountriesContent() {
-    if (selectedCountry) {
+    if (selectedCountry && !showFavorites) {
       return (
         <ComCountryCardBig country={selectedCountry} onBack={handleBackBtn} />
       );
@@ -89,6 +92,7 @@ function App() {
         <ComFavoriteCountries
           favorites={sortData(favorites)}
           onBack={handleBackBtn}
+          onCountrySelect={handleCountrySelect}
           setFavorites={setFavorites}
         />
       );
