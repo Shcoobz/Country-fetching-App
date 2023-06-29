@@ -5,7 +5,7 @@ import ComBtn from '../components/ComBtn';
 function CardCountrySmall({
   country,
   favorites,
-  handleFavoriteToggle,
+  handleAddRemoveFavToggle,
   onCountrySelect,
 }) {
   const isFavorite = checkIfFavorite();
@@ -19,7 +19,7 @@ function CardCountrySmall({
       <div className='country-name-container'>
         <h2 className='country-name'>{country.name.common}</h2>
         <ComBtn
-          onClick={() => handleFavoriteToggle(country)}
+          onClick={() => handleAddRemoveFavToggle(country)}
           icon={isFavorite ? solidHeart : regularHeart}
           iconClassName={isFavorite ? 'solidHeart' : 'regularHeart'}
           className={`fav-btn ${isFavorite ? 'solidHeart' : 'regularHeart'}`}
