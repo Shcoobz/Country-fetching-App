@@ -1,5 +1,3 @@
-import ComBackBtn from './Buttons/ComBackBtn';
-
 function CountryInfoItem({ label, value }) {
   return (
     <div className='info-item'>
@@ -9,13 +7,13 @@ function CountryInfoItem({ label, value }) {
   );
 }
 
-function ComCountryCardBig({ country, onBack }) {
+function CardCountryBig({ country }) {
   return (
     <div>
       <div className='country-container'>
         <h2>{country.name.common}</h2>
         <div className='flag'>
-          <img src={country.flags.svg} alt='flag' style={{ width: '500px' }} />
+          <img src={country.flags.svg} alt='flag' />
         </div>
         <div className='country-info'>
           <CountryInfoItem
@@ -41,9 +39,8 @@ function ComCountryCardBig({ country, onBack }) {
           <CountryInfoItem label='Continent:' value={country.continents[0]} />
         </div>
       </div>
-      <ComBackBtn onClick={onBack} />
     </div>
   );
 }
 
-export default ComCountryCardBig;
+export default CardCountryBig;

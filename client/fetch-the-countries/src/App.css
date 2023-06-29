@@ -102,6 +102,7 @@ body {
 .flag {
   margin-bottom: 25px;
   margin-top: 25px;
+  width: '500px';
 }
 
 .country-container {
@@ -130,12 +131,6 @@ body {
   word-wrap: break-word;
 }
 
-.heart-icon {
-  color: #e51515;
-  position: relative;
-  top: -2px;
-}
-
 button {
   cursor: pointer;
   font-size: 1.2rem;
@@ -159,8 +154,15 @@ button:active {
   box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
 }
 
+.heart-icon {
+  color: #e51515;
+  position: relative;
+  top: -4px;
+  font-size: 30px;
+}
+
 .fav-btn {
-  padding: 0.7rem;
+  padding: 0.5rem;
   position: absolute;
   right: 0;
   top: 15%;
@@ -195,6 +197,8 @@ button:active {
   transition-delay: 0s;
 }
 
+/* media query */
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -208,12 +212,4 @@ button:active {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
