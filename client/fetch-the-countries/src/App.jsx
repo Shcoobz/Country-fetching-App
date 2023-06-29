@@ -11,7 +11,7 @@ import UtilSortData from './utils/UtilSortData';
 
 // TODO: change spacing on fav page && details page // title & btn
 // TODO: fix flagg width in some country details
-// TODO: add a clear all fav btn
+// TODO: when no favs in array, btn should not be visible in country page & favorite page
 
 function App() {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -92,6 +92,10 @@ function App() {
     setFavoriteSearchValue(e.target.value);
   }
 
+  function onRemoveAllFavorites() {
+    setFavorites([]);
+  }
+
   // toggle
   function handleAddRemoveFavToggle(country) {
     if (favorites.some((fav) => fav.name.common === country.name.common)) {
@@ -112,6 +116,7 @@ function App() {
           favoriteSearchValue={favoriteSearchValue}
           onFavoritesSearchInput={onFavoritesSearchInput}
           handleAddRemoveFavToggle={handleAddRemoveFavToggle}
+          onRemoveAllFavorites={onRemoveAllFavorites}
           favorites={favorites}
           onCountrySelect={onCountrySelect}
         />
@@ -138,6 +143,7 @@ function App() {
         countries={countries}
         favorites={favorites}
         handleAddRemoveFavToggle={handleAddRemoveFavToggle}
+        onRemoveAllFavorites={onRemoveAllFavorites}
         onCountrySelect={onCountrySelect}
         filterCountries={filterCountries}
       />

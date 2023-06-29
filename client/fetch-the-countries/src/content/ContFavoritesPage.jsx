@@ -10,6 +10,7 @@ function ContFavoritesPage({
   favoriteSearchValue,
   onFavoritesSearchInput,
   handleAddRemoveFavToggle,
+  onRemoveAllFavorites,
   favorites,
   onCountrySelect,
 }) {
@@ -34,6 +35,12 @@ function ContFavoritesPage({
           icon={null}
           tooltip={false}
         />
+        <ComBtn
+          text='Remove All Favorites'
+          onClick={onRemoveAllFavorites}
+          className='remove-all-favorites-btn'
+        />
+
         <ComBtn text='Back' onClick={onBackBtnClick} className='back-btn' />
       </div>
       <div>

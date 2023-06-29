@@ -12,6 +12,7 @@ function ContCountryPage({
   countries,
   favorites,
   handleAddRemoveFavToggle,
+  onRemoveAllFavorites,
   onCountrySelect,
   filterCountries,
 }) {
@@ -43,6 +44,11 @@ function ContCountryPage({
           text='Show Favorite Countries'
           onClick={onFavoritesBtnClick}
           className='favorites-btn'
+        />
+        <ComBtn
+          text='Remove All Favorites'
+          onClick={onRemoveAllFavorites}
+          className='remove-all-favorites-btn'
         />
       </div>
       <div className='container country-grid'>
