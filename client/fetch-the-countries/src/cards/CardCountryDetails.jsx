@@ -1,3 +1,7 @@
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
+import ComBtn from '../components/ComBtn';
+
 function CountryInfoItem({ label, value }) {
   return (
     <div className='info-item'>
@@ -7,14 +11,33 @@ function CountryInfoItem({ label, value }) {
   );
 }
 
-function CardCountryBig({ country }) {
+function CardCountryDetails({ country, favorites, handleAddRemoveFavToggle }) {
+  const isFavorite = checkIfFavorite();
+
+  function checkIfFavorite() {
+    return favorites.some((fav) => fav.name.common === country.name.common);
+  }
+
   return (
     <div>
       <div className='country-container'>
-        <h2>{country.name.common}</h2>
+        <div className='details-title'>
+          <h2>{country.name.common}</h2>
+          <ComBtn
+            onClick={() => handleAddRemoveFavToggle(country)}
+            icon={isFavorite ? solidHeart : regularHeart}
+            iconClassName={isFavorite ? 'solidHeart' : 'regularHeart'}
+            className={`fav-btn-card-details ${
+              isFavorite ? 'solidHeart' : 'regularHeart'
+            }`}
+            tooltip={true}
+          />
+        </div>
+        <hr className='rounded-top' />
         <div className='flag'>
           <img src={country.flags.svg} alt='flag' />
         </div>
+        <hr className='rounded-bottom' />
         <div className='country-info'>
           <CountryInfoItem
             label='Official Name:'
@@ -43,4 +66,4 @@ function CardCountryBig({ country }) {
   );
 }
 
-export default CardCountryBig;
+export default CardCountryDetails;

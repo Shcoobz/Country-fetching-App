@@ -43,7 +43,7 @@ function ContCountryPage({
         />
 
         <ComBtn
-          text='Show Favorite Countries'
+          text='Favorites'
           onClick={onFavoritesBtnClick}
           className='favorites-btn'
         />

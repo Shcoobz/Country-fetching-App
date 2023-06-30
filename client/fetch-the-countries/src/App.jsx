@@ -5,7 +5,7 @@ import ContCountryPage from './content/ContCountryPage';
 import ContCountryDetailsPage from './content/ContCountryDetailsPage';
 import ContFavoritesPage from './content/ContFavoritesPage';
 
-import { UtilFilterCountries } from './utils/UtilFilterCountries';
+import UtilFilterCountries from './utils/UtilFilterCountries';
 import UtilFetchCountries from './utils/UtilFetchCountries';
 import UtilSortData from './utils/UtilSortData';
 
@@ -58,6 +58,7 @@ function App() {
     setIsExpanded(false);
     setShowFavorites(false);
     setFavoriteSearchValue('');
+    setSearchValue('');
     setCountrySortOrder('asc');
   }
 
@@ -72,6 +73,8 @@ function App() {
       const newFavorites = [...prevFavorites, country];
       return UtilSortData(newFavorites);
     });
+
+    setFavoriteSearchValue('');
   }
 
   function onRemoveFavClick(country) {
@@ -125,6 +128,8 @@ function App() {
           onFavoritesBtnClick={onFavoritesBtnClick}
           onBackBtnClick={onBackBtnClick}
           selectedCountry={selectedCountry}
+          favorites={favorites}
+          handleAddRemoveFavToggle={handleAddRemoveFavToggle}
         />
       );
     }

@@ -22,10 +22,13 @@ function CardCountrySmall({
           onClick={() => handleAddRemoveFavToggle(country)}
           icon={isFavorite ? solidHeart : regularHeart}
           iconClassName={isFavorite ? 'solidHeart' : 'regularHeart'}
-          className={`fav-btn ${isFavorite ? 'solidHeart' : 'regularHeart'}`}
+          className={`fav-btn-card-small ${
+            isFavorite ? 'solidHeart' : 'regularHeart'
+          }`}
           tooltip={true}
         />
       </div>
+      <hr className='rounded-country' />
       <ComBtn
         text='Learn More'
         onClick={() => onCountrySelect(country)}
