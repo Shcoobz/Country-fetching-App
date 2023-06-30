@@ -1,6 +1,8 @@
 import ComTitle from '../components/ComTitle';
 import ComBtn from '../components/ComBtn';
 import ComSearch from '../components/ComSearch';
+import ComRemoveAllFavBtn from '../components/ComRemoveAllFavBtn';
+
 import CardFavoritePage from '../cards/CardFavoritePage';
 
 function ContFavoritesPage({
@@ -35,17 +37,17 @@ function ContFavoritesPage({
           icon={null}
           tooltip={false}
         />
-        <ComBtn
-          text='Remove All Favorites'
-          onClick={onRemoveAllFavorites}
-          className='remove-all-favorites-btn'
+
+        <ComRemoveAllFavBtn
+          favorites={favorites}
+          onRemoveAllFavorites={onRemoveAllFavorites}
         />
 
         <ComBtn text='Back' onClick={onBackBtnClick} className='back-btn' />
       </div>
       <div>
         {favorites.length > 0 ? (
-          <div className='container favorites-view'>
+          <div className='container'>
             <CardFavoritePage
               favorites={favorites}
               handleAddRemoveFavToggle={handleAddRemoveFavToggle}

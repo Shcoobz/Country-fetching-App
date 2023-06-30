@@ -1,6 +1,8 @@
 import ComTitle from '../components/ComTitle';
 import ComSearch from '../components/ComSearch';
 import ComBtn from '../components/ComBtn';
+import ComRemoveAllFavBtn from '../components/ComRemoveAllFavBtn';
+
 import CardCountrySmall from '../cards/CardCountrySmall';
 
 function ContCountryPage({
@@ -45,13 +47,13 @@ function ContCountryPage({
           onClick={onFavoritesBtnClick}
           className='favorites-btn'
         />
-        <ComBtn
-          text='Remove All Favorites'
-          onClick={onRemoveAllFavorites}
-          className='remove-all-favorites-btn'
+
+        <ComRemoveAllFavBtn
+          favorites={favorites}
+          onRemoveAllFavorites={onRemoveAllFavorites}
         />
       </div>
-      <div className='container country-grid'>
+      <div className='container'>
         {filteredCountries.map((country) => (
           <CardCountrySmall
             key={country.name.common}

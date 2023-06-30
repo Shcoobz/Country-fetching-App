@@ -5,13 +5,9 @@ import ContCountryPage from './content/ContCountryPage';
 import ContCountryDetailsPage from './content/ContCountryDetailsPage';
 import ContFavoritesPage from './content/ContFavoritesPage';
 
-import { filterCountries } from './utils/UtilFilterCountries';
+import { UtilFilterCountries } from './utils/UtilFilterCountries';
 import UtilFetchCountries from './utils/UtilFetchCountries';
 import UtilSortData from './utils/UtilSortData';
-
-// TODO: change spacing on fav page && details page // title & btn
-// TODO: fix flagg width in some country details
-// TODO: when no favs in array, btn should not be visible in country page & favorite page
 
 function App() {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -145,7 +141,7 @@ function App() {
         handleAddRemoveFavToggle={handleAddRemoveFavToggle}
         onRemoveAllFavorites={onRemoveAllFavorites}
         onCountrySelect={onCountrySelect}
-        filterCountries={filterCountries}
+        filterCountries={UtilFilterCountries}
       />
     );
   }

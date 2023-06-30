@@ -1,5 +1,5 @@
 import CardCountrySmall from './CardCountrySmall';
-import { filterCountries } from '../utils/UtilFilterCountries';
+import UtilFilterCountries from '../utils/UtilFilterCountries';
 
 function CardFavoritePage({
   favorites,
@@ -21,7 +21,7 @@ function CardFavoritePage({
 
   function renderFavoriteCountryCards() {
     const updatedFavorites = updateCountryObjectsWithFavorites();
-    const filteredFavorites = filterCountries(
+    const filteredFavorites = UtilFilterCountries(
       updatedFavorites,
       favoriteSearchValue
     );

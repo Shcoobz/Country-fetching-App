@@ -1,5 +1,6 @@
 import ComTitle from '../components/ComTitle';
 import ComBtn from '../components/ComBtn';
+
 import CardCountryBig from '../cards/CardCountryBig';
 
 function ContCountryDetailsPage({

@@ -28,20 +28,6 @@ body {
   text-align: center;
 }
 
-.favorites-view {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.country-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -99,17 +85,17 @@ body {
   gap: 20px;
 }
 
-.flag {
-  margin-bottom: 25px;
-  margin-top: 25px;
-  width: '500px';
-}
-
 .country-container {
   border: 1px solid #333;
   border-radius: 10px;
   padding: 15px;
-  margin: 0px 0;
+  margin-top: 50px;
+}
+
+.flag img {
+  margin-bottom: 25px;
+  margin-top: 25px;
+  width: 500px;
 }
 
 .info-label {
@@ -152,6 +138,10 @@ button:hover {
 button:active {
   transform: translate(0, 0.3rem);
   box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
+}
+
+.btn-container {
+  margin-bottom: 15px;
 }
 
 .heart-icon {
