@@ -1,6 +1,6 @@
 # Country Fetching App
 
-![Project Image](/src/img/fetch-the-countries.png)
+![Project Image](/client/src/img/fetch-the-countries.png)
 
 ## Summary
 
