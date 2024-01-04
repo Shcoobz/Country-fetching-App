@@ -29,7 +29,7 @@
     "gh-pages": "^6.1.1",
     "vite": "^4.3.9"
   },
-  "homepage": "https://Shcoobz.github.io/more-on-fetch-the-countries-react-Shcoobz",
+  "homepage": "https://Shcoobz.github.io/Country-fetching-App",
   "main": "vite.config.js",
   "keywords": [],
   "author": "",
