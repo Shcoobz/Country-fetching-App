@@ -8,7 +8,7 @@ Welcome to the Country Fetching App! This application provides a user-friendly i
 
 The core functionality includes:
 
-- Fetching and displaying detailed information about various countries.
+- Fetching and displaying detailed information about various countries.Country
 - Sorting countries alphabetically in ascending or descending order.
 - Marking favorite countries for easy access.
 - Searching for countries based on their names.

@@ -24,6 +24,4 @@ dist-ssr
 *.sw?
 
 .vite
-
-client/package-lock.json
-client/node_modules
+package-lock.json
