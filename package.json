@@ -11,6 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  "homepage": "https://Shcoobz.github.io/advancedJS_country-fetching-app",
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
@@ -29,7 +30,6 @@
     "gh-pages": "^6.1.1",
     "vite": "^4.3.9"
   },
-  "homepage": "https://Shcoobz.github.io/Country-fetching-App",
   "main": "vite.config.js",
   "keywords": [],
   "author": "",

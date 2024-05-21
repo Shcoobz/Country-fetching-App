@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Country-fetching-App/',
+  base: '/advancedJS_country-fetching-app/',
   build: {
     outDir: 'build',
   },

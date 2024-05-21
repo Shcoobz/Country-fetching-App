@@ -1,6 +1,6 @@
-# Country Fetching App
+# Country Fetching App: [LIVE DEMO](https://shcoobz.github.io/advancedJS_country-fetching-app/)
 
-![Project Image](/src/img/fetch-the-countries.png)
+![Project Image](/src/img/advancedJS_country-fetching-app.png)
 
 ## Summary
 
